@@ -22,7 +22,7 @@ class ArcusCache[V](client: MemcachedClient,
     extends AbstractCache[V]
     with MemcachedTTLConverter {
 
-  override protected final val logger = Logger.getLogger(getClass.getName)
+  override protected def logger : scalacache.logging.Logger = Logger.getLogger(getClass.getName)
 
   override protected def doGet[F[_]](key: String)(implicit mode: Mode[F]): F[Option[V]] = {
     mode.M.async { cb =>
@@ -77,7 +77,6 @@ class ArcusCache[V](client: MemcachedClient,
   }
 
   override def close[F[_]]()(implicit mode: Mode[F]): F[Any] = mode.M.delay(client.shutdown())
-
 }
 
 object ArcusCache {
