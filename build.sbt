@@ -117,11 +117,11 @@ lazy val mavenSettings = Seq(
       </developer>
     </developers>,
   publishTo := {
-    val nexus = "https://oss.sonatype.org/"
+    val nexus = "http://maven.daumcorp.com/content/repositories/"
     if (isSnapshot.value)
-      Some("snapshots" at nexus + "content/repositories/snapshots")
+      Some("snapshots".at(nexus + "kakao-gift-snapshots"))
     else
-      Some("releases" at nexus + "service/local/staging/deploy/maven2")
+      Some("releases".at(nexus + "kakao-gift-release"))
   },
   publishMavenStyle := true,
   publishArtifact in Test := false,
