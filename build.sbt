@@ -87,7 +87,7 @@ lazy val commonSettings =
         publishArtifacts,
         setNextVersion,
         commitNextVersion,
-        releaseStepCommand("sonatypeReleaseAll"),
+//        releaseStepCommand("sonatypeReleaseAll"),
         pushChanges
       )
 //    commands += Command.command("update-version-in-readme")(updateVersionInReadme)
